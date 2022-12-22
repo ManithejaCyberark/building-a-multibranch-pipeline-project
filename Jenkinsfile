@@ -3,7 +3,7 @@ pipeline {
  stages{
    stage("fetch the code"){
     steps{
-         echo "git clone completed"
+         echo "git clone completed from master"
       }
    }
     stage("build"){
