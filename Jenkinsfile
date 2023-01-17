@@ -4,11 +4,9 @@ pipeline {
    stage("Git Checkout"){
     steps{
       echo "getting code from conjur"
-//         git credentialsId: 'a86a704c-802f-40ce-b51f-db29c6ad38cc', url: 'https://github.com/ManithejaCyberark/conjur-quickstart.git'
-//           echo "getting code from conjur"
-         
-//         withCredentials([conjurSecretCredential(credentialsId: 'test-pipeline-credential2', variable: 'CONJUR_SECRET')]) {
-//            echo "conjur provided credential $CONJUR_SECRET"
+           withCredentials([conjurSecretCredential(credentialsId: 'f10717d6-2bd2-49c6-83d5-a0b9384b8fa6', variable: 'CONJUR_SECRET')]) {
+             git branch: 'master', credentialsId: 'f10717d6-2bd2-49c6-83d5-a0b9384b8fa6', url: 'https://github.com/ManithejaCyberark/building-a-multibranch-pipeline-project.git'
+           }
          }
       }
    }
