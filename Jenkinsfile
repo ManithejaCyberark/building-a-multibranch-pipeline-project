@@ -3,7 +3,9 @@ pipeline {
  stages{
    stage("fetch the code"){
     steps{
-         echo "build success"
+         withCredentials([conjurSecretCredential(credentialsId: 'test-pipeline-credential2', variable: 'CONJUR_SECRET')]) {
+           // some block
+         }
       }
    }
     stage("build"){
