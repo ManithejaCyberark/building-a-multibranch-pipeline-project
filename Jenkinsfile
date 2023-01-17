@@ -3,14 +3,12 @@ pipeline {
  stages{
    stage("fetch the code"){
     steps{
-         withCredentials([conjurSecretCredential(credentialsId: 'test-pipeline-credential2', variable: 'CONJUR_SECRET')]) {
-           // some block
+        git credentialsId: 'a86a704c-802f-40ce-b51f-db29c6ad38cc', url: 'https://github.com/ManithejaCyberark/conjur-quickstart.git'
+          echo "getting code from conjur"
+         
+        withCredentials([conjurSecretCredential(credentialsId: 'test-pipeline-credential2', variable: 'CONJUR_SECRET')]) {
+           echo "conjur provided credential $CONJUR_SECRET"
          }
-      }
-   }
-    stage("build"){
-    steps{
-         echo "build completed"
       }
    }
   stage("Deployed in production"){
