@@ -4,10 +4,9 @@ pipeline {
    stage("Git Checkout"){
     steps{
       echo "getting code from conjur"
-           withCredentials([conjurSecretCredential(credentialsId: 'f10717d6-2bd2-49c6-83d5-a0b9384b8fa6', variable: 'CONJUR_SECRET')]) {
-             git branch: 'master', credentialsId: 'f10717d6-2bd2-49c6-83d5-a0b9384b8fa6', url: 'https://github.com/ManithejaCyberark/building-a-multibranch-pipeline-project.git'
+     withCredentials([conjurSecretUsername(credentialsId: '807f6728-f34c-4ce2-8d1e-72b6c1dd63e2', passwordVariable: 'CONJUR_SECRET', usernameVariable: 'ManithejaCyberark')]) {
+            git branch: 'master', credentialsId: '807f6728-f34c-4ce2-8d1e-72b6c1dd63e2', url: 'https://github.com/ManithejaCyberark/building-a-multibranch-pipeline-project.git'
            }
-         }
       }
    }
   stage("Deployed in production"){
