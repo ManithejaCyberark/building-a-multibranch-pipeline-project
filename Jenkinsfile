@@ -1,8 +1,9 @@
 node {
   stage('Publish') {
-    withCredentials([conjurSecretUsername(credentialsId: 'new_1', passwordVariable: 'CONJUR_SECRET', usernameVariable: 'USERNAME')]) {
-    git branch: 'master', credentialsId: 'new_1', url: 'https://github.com/ManithejaCyberark/building-a-multibranch-pipeline-project.git'
-    }
+//     withCredentials([conjurSecretUsername(credentialsId: 'new_1', passwordVariable: 'CONJUR_SECRET', usernameVariable: 'USERNAME')]) {
+//     git branch: 'master', credentialsId: 'new_1', url: 'https://github.com/ManithejaCyberark/building-a-multibranch-pipeline-project.git'
+//     }
+    echo "publish"
   }
 }
 
